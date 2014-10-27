@@ -8,11 +8,10 @@ app.config(function($routeProvider){
     when('/futureprojects', {templateUrl: 'partials/futureprojects.html'}).
     when('/skills', {templateUrl: 'partials/skills.html'}).
     when('/algorithms', {templateUrl: 'partials/algorithms.html'}).
+    when('/contact', {templateUrl: 'partials/contact.html'}).
     otherwise({redirectTo: '/'});
 });
 
-app.controller("ViewController", ["$scope", "$location", function($scope, $location){
-  $scope.setRoute = function(route){
-    $location.path(route);
-  }
+app.controller("ViewController", ["$scope", function($scope){
+  
 }]);
