@@ -1,4 +1,4 @@
-var app = angular.module("websiteApp", []).
+var app = angular.module("websiteApp", ['ngRoute']).
   config(function($routeProvider){
     $routeProvider.
       when('/about', {template:'partials/about.html'}).
