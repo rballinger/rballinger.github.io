@@ -67,14 +67,14 @@
 					xhr.setRequestHeader("Accept","application/vnd.github.v3.raw");
 				},
 				success: function(data, textStatus, xhr) {
-					alert("success");
-					alert(data);
+					//alert("success");
+					//alert(data);
 					var percent = data.match(/%([0-9]){1,3}%/g);
-					alert(percent[0].slice(1, percent[0].length - 1));
+					//alert(percent[0].slice(1, percent[0].length - 1));
 				},
 				error: function(xhr, textStatus, errorThrown) {
 					alert("failed");
-					alert(xhr);
+					//alert(xhr);
 				}
 			});
 		
