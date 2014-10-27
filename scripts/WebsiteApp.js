@@ -1,6 +1,6 @@
 var app = angular.module("websiteApp", ['ngRoute']);
 
-app.config(function($routeProvider, $locationProvider){
+app.config(function($routeProvider){
   $routeProvider.
     when('/', {templateUrl:'partials/about.html'}).
     when('/pastprojects', {templateUrl: 'partials/pastprojects.html'}).
@@ -9,7 +9,6 @@ app.config(function($routeProvider, $locationProvider){
     when('/skills', {templateUrl: 'partials/skills.html'}).
     when('/algorithms', {templateUrl: 'partials/algorithms.html'}).
     otherwise({redirectTo: '/'});
-    $locationProvider.html5Mode(true);
 });
 
 app.controller("ViewController", ["$scope", function($scope){
