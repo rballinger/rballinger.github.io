@@ -1,13 +1,13 @@
 var app = angular.module("websiteApp", ['ngRoute']).
   config(function($routeProvider){
     $routeProvider.
-      when('/about', {template:'partials/about.html'}).
-      when('/pastprojects', {template: 'partials/pastprojects.html'}).
-      when('/currentprojects', {template: 'partials/currentprojects.html'}).
-      when('/futureprojects', {template: 'partials/futureprojects.html'}).
-      when('/skills', {template: 'partials/skills.html'}).
-      when('/algorithms', {template: 'partials/algorithms.html'}).
-      otherwise({redirectTo: '/about', template:'partials/about.html'})
+      when('/', {templateUrl:'partials/about.html'}).
+      when('/pastprojects', {templateUrl: 'partials/pastprojects.html'}).
+      when('/currentprojects', {templateUrl: 'partials/currentprojects.html'}).
+      when('/futureprojects', {templateUrl: 'partials/futureprojects.html'}).
+      when('/skills', {templateUrl: 'partials/skills.html'}).
+      when('/algorithms', {templateUrl: 'partials/algorithms.html'}).
+      otherwise({redirectTo: '/'})
   });
 
 app.controller("ViewController", ["$scope", function($scope){
