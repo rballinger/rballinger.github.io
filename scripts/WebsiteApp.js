@@ -11,6 +11,8 @@ app.config(function($routeProvider){
     otherwise({redirectTo: '/'});
 });
 
-app.controller("ViewController", ["$scope", function($scope){
-
+app.controller("ViewController", ["$scope", "$location", function($scope, $location){
+  $scope.setRoute = function(route){
+    $location.path(route);
+  }
 }]);
