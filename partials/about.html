@@ -90,30 +90,6 @@
 
   
 
-  $(".slideicon").click(function(event) {
-    if(event.originalEvent){
-      //window.clearInterval(timer);
-    }
-    var idNum = $(this).attr("id").replace(/slideIcon/,"");
-    if(idNum > currentSlide){
-      $("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
-        $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
-        currentSlide = idNum;
-        $("#slide"+currentSlide).toggle("slide", {direction:"right"});
-        $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
-      });
-    }else if(idNum < currentSlide){
-      $("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
-        $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
-        currentSlide = idNum;
-        $("#slide"+currentSlide).toggle("slide", {direction:"left"});
-        $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
-      });
-    }
-    if(event.originalEvent){
-      //timer = window.setInterval(autoslide, delay);
-    }
-  });
 
   //$(window).resize(resized);
 
