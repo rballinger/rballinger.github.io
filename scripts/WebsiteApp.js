@@ -17,22 +17,23 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
-  $scope.slideClick = function(iconName){
-    switch(iconName){
-      case "right":
-        alert("right clicked");
-        break;
-      case "left":
-        alert("left clicked");
-        break;
-      case "1":
-        alert("1 clicked");
-        break;
-      case "2":
-        alert("2 clicked");
-        break;
+  $scope.slideClick = function(iconName, $event){
+    if($event.originalEvent){
+      switch(iconName){
+        case "right":
+          alert("right clicked");
+          break;
+        case "left":
+          alert("left clicked");
+          break;
+        case "1":
+          alert("1 clicked");
+          break;
+        case "2":
+          alert("2 clicked");
+          break;
+      }
     }
-
   };
 
 
