@@ -1,6 +1,3 @@
 rballinger.github.io
 ====================
-
-Personal Website
-<br>
-Precent Complete: %1%
+Personal Website built with Twitter Bootstrap 3 and AngularJS.
