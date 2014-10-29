@@ -1,10 +1,176 @@
+<style>
+  body{
+    padding-top:80px;
+  }
+  #slide-row{
+    min-height:300px;
+  }
+  .slide{
+    min-height:250px;
+  }
+</style>
+
+<div class="row">
+  <div class="jumbotron visible-xs-block row">
+    <div class="col-xs-12">
+      <img src="person.png" class="responsive" style="display:block;margin:auto auto;">
+    </div>
+    <div class="col-xs-12" style="text-align:justify">
+      <p>
+        <br>I am <strong>innovative</strong>, <strong>curious</strong>, and <strong>practical</strong>.
+        <br>I am always looking for the next challenge.
+        <br>I am a developer.
+        <br><br>
+        I am currently completing my <strong>Computer Science degree (B.S)</strong> at Grand Valley State University,
+        along with a <strong>minor in Mathematics</strong>. I'm <strong>passionate</strong> in what I do, and the hardest part right now is
+        making the time for everything I want to do such as learning new technologies, developing new software projects,
+        and doing more web development. I try to keep everything prioritized so I can keep focus on what needs
+        to be done now, and what will need to be done later.
+        <br><br>
+        All of my personal work is posted in the <a href="pastprojects.html">projects</a> section, but also on my
+        <a href="https://github.com/rballinger">Github</a>,
+        so feel free to take a look!
+        <br><br>
+        Visit my <a href="contact.html">contact page</a> if you want to reach out to me!
+      </p>
+    </div>
+  </div>
+  <div class="jumbotron hidden-xs">
+    <div class="row" id="slide-row">
+      <div id="slide1" class="slide row">
+        <div class="col-xs-12 col-md-3">
+          <img src="person.png" class="img-responsive" style="display:block;margin:auto auto;">
+        </div>
+        <div class="col-xs-12 col-md-9" style="text-align:justify">
+          <h1>Who Am I?</h1>
+          <p>
+            I am <strong>innovative</strong>, <strong>curious</strong>, and <strong>logical</strong>.
+            <br>I am always looking for the next challenge to face, to overcome, to conquer.
+            <br>I am <strong>passionate</strong> about programming, whether it be old, new, front-end, back-end, or just local software.
+            <br>I am <strong>Ryan Ballinger</strong>.
+            <br><br><a class="btn btn-primary btn-lg" href="skills.html" role="button">Learn more about me &raquo;</a>
+          </p>
+        </div>
+      </div>
+      <div id="slide2" class="slide row" style="display:none">
+        <div class="col-xs-12 col-md-3">
+          <img src="person.png" class="img-responsive" style="display:block;margin:auto auto;">
+        </div>
+        <div class="col-xs-12 col-md-9" style="text-align:justify">
+          <h1>What do I do?</h1>              
+          <p>
+            My latest projects include this website along with a web application I collaborated on!
+            <br><br>
+            <a class="btn btn-primary btn-lg" href="pastprojects.html" role="button">See more projects &raquo;</a><br><br>
+            <small>Almost all my projects can also be found on my
+            <a href="https://github.com/rballinger">Github</a>,
+            where they are given in more detail.</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <a href="#"><span style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-right"></span></a>
+      <a href="#"><span id="slideIcon2" style="float:right;margin:10px" class="glyphicon glyphicon-minus slideicon"></span></a>
+      <a href="#"><span id="slideIcon1" style="float:right;margin:10px" class="glyphicon glyphicon-record slideicon"></span></a>
+      <a href="#"><span style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-left"></span></a>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
+  var delay = 10000;
+  var currentSlide = 1;
+  var maxSlides = 2;
+  var timer;
+  var width;
+  var small = true;
+
   $('.active').removeClass("active");
   $('#about').addClass("active");
-</script>
 
-<p>1) About</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<p>2) About</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<p>3) About</p>
+  $(".glyphicon-circle-arrow-right").click(function(event) {
+    if(event.originalEvent){
+      window.clearInterval(timer);
+    }
+    $("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
+      $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+      currentSlide++;
+      if(currentSlide > maxSlides)
+        currentSlide = 1;
+      $("#slide"+currentSlide).toggle("slide", {direction:"right"});
+      $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+    });
+    if(event.originalEvent){
+      timer = window.setInterval(autoslide, delay);
+    }
+  });
+
+  $(".glyphicon-circle-arrow-left").click(function(event) {
+    if(event.originalEvent){
+      window.clearInterval(timer);
+    }
+    $("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+      $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+      currentSlide--;
+      if(currentSlide < 1)
+        currentSlide = maxSlides;
+      $("#slide"+currentSlide).toggle("slide", {direction:"left"});
+      $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+    });
+    if(event.originalEvent){
+      timer = window.setInterval(autoslide, delay);
+    }
+  });
+
+  $(".slideicon").click(function(event) {
+    if(event.originalEvent){
+      window.clearInterval(timer);
+    }
+    var idNum = $(this).attr("id").replace(/slideIcon/,"");
+    if(idNum > currentSlide){
+      $("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
+        $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+        currentSlide = idNum;
+        $("#slide"+currentSlide).toggle("slide", {direction:"right"});
+        $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+      });
+    }else if(idNum < currentSlide){
+      $("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+        $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+        currentSlide = idNum;
+        $("#slide"+currentSlide).toggle("slide", {direction:"left"});
+        $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+      });
+    }
+    if(event.originalEvent){
+      timer = window.setInterval(autoslide, delay);
+    }
+  });
+
+  $(window).resize(resized);
+
+  function autoslide(){
+    $(".glyphicon-circle-arrow-right").click();
+  };
+
+  function resized(){
+    width = $(window).width();
+    if(width < 768){
+      if(!small){
+        window.clearInterval(timer);
+        small = true;
+      }
+    }else{
+      if(small){
+        timer = window.setInterval(autoslide, delay);
+        small = false;
+      }
+    }
+  }
+
+  $(document).ready(resized);
+
+
+
+  </script>
