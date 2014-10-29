@@ -19,6 +19,11 @@ app.controller("ViewController", ["$scope", function($scope){
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
   $window.alert("using about controller");
 
+
+
+
+  
+
 }]);
 
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
