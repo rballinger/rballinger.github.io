@@ -86,27 +86,9 @@
   var width;
   var small = true;
 
-  $('.active').removeClass("active");
-  $('#about').addClass("active");
-
   
 
-  $(".glyphicon-circle-arrow-left").click(function(event) {
-    if(event.originalEvent){
-      //window.clearInterval(timer);
-    }
-    $("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
-      $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
-      currentSlide--;
-      if(currentSlide < 1)
-        currentSlide = maxSlides;
-      $("#slide"+currentSlide).toggle("slide", {direction:"left"});
-      $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
-    });
-    if(event.originalEvent){
-      //timer = window.setInterval(autoslide, delay);
-    }
-  });
+  
 
   $(".slideicon").click(function(event) {
     if(event.originalEvent){

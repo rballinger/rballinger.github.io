@@ -22,13 +22,15 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   var currentSlide = 1;
   var maxSlide = 2;
 
+  $window.$('.active').removeClass("active");
+  $window.$('#about').addClass("active");
+
   $scope.slideClick = function(iconName, $event){
     if($event.originalEvent){
       timer = $window.clearInterval(timer);
     }
     switch(iconName){
       case "right":
-        alert("right clicked");
         $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
           $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
           currentSlide++;
@@ -39,25 +41,25 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
         });
         break;
       case "left":
-        alert("left clicked");
+        $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+          $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+          currentSlide--;
+          if(currentSlide < 1)
+            currentSlide = maxSlides;
+          $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
+          $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+        });
         break;
-      case "1":
-        alert("1 clicked");
-        break;
-      case "2":
-        alert("2 clicked");
+      case "1","2":
+        alert(iconName + " clicked");
         break;
     }
-
-    
-
     if($event.originalEvent){
       timer = setInterval(autoslide, delay);
     }
   };
 
   function autoslide(){
-    alert("auto clicked");
     $window.$(".glyphicon-circle-arrow-right").click();
   };
 }]);
