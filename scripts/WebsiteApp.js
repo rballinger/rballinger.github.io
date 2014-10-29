@@ -50,8 +50,23 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
           $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
         });
         break;
-      case "1","2":
-        alert(iconName + " clicked");
+      case "1":
+      case "2":
+        if(iconName > currentSlide){
+          $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
+            $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+            currentSlide = iconName;
+            $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
+            $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+          });
+        }else if(iconName < currentSlide){
+          $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+            $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
+            currentSlide = iconName;
+            $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
+            $window.$("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
+          });
+        }
         break;
     }
     if($event.originalEvent){
