@@ -17,31 +17,41 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
+  $scope.timer = $window.setInterval($scope.timer);
+
   $scope.slideClick = function(iconName, $event){
     if($event.originalEvent){
-      switch(iconName){
-        case "right":
-          alert("right clicked");
-          break;
-        case "left":
-          alert("left clicked");
-          break;
-        case "1":
-          alert("1 clicked");
-          break;
-        case "2":
-          alert("2 clicked");
-          break;
-      }
+      $scope.timer = $window.setInterval($scope.timer);
+    }
+    switch(iconName){
+      case "right":
+        alert("right clicked");
+
+        break;
+      case "left":
+        alert("left clicked");
+        break;
+      case "1":
+        alert("1 clicked");
+        break;
+      case "2":
+        alert("2 clicked");
+        break;
+    }
+
+    if($event.originalEvent){
+      $scope.timer = setInterval(autoslide, $scope.delay);
     }
   };
 
-
-
-
-
-
+  function autoslide(){
+    alert("auto clicked");
+    $window.$(".glyphicon-circle-arrow-right").click();
+  };
 }]);
+
+
+
 
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
   $window.alert("using pastprojects controller");
