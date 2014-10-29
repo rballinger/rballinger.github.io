@@ -27,7 +27,7 @@
         and doing more web development. I try to keep everything prioritized so I can keep focus on what needs
         to be done now, and what will need to be done later.
         <br><br>
-        All of my personal work is posted in the <a href="pastprojects.html">projects</a> section, but also on my
+        All of my personal work is posted in the <a href="#/pastprojects">projects</a> section, but also on my
         <a href="https://github.com/rballinger">Github</a>,
         so feel free to take a look!
         <br><br>
@@ -48,7 +48,7 @@
             <br>I am always looking for the next challenge to face, to overcome, to conquer.
             <br>I am <strong>passionate</strong> about programming, whether it be old, new, front-end, back-end, or just local software.
             <br>I am <strong>Ryan Ballinger</strong>.
-            <br><br><a class="btn btn-primary btn-lg" href="skills.html" role="button">Learn more about me &raquo;</a>
+            <br><br><a class="btn btn-primary btn-lg" href="#/skills" role="button">Learn more about me &raquo;</a>
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@
           <p>
             My latest projects include this website along with a web application I collaborated on!
             <br><br>
-            <a class="btn btn-primary btn-lg" href="pastprojects.html" role="button">See more projects &raquo;</a><br><br>
+            <a class="btn btn-primary btn-lg" href="#/pastprojects" role="button">See more projects &raquo;</a><br><br>
             <small>Almost all my projects can also be found on my
             <a href="https://github.com/rballinger">Github</a>,
             where they are given in more detail.</small>
@@ -70,10 +70,10 @@
       </div>
     </div>
     <div class="row">
-      <a href=""><span style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-right"></span></a>
-      <a href=""><span id="slideIcon2" style="float:right;margin:10px" class="glyphicon glyphicon-minus slideicon"></span></a>
-      <a href=""><span id="slideIcon1" style="float:right;margin:10px" class="glyphicon glyphicon-record slideicon"></span></a>
-      <a href=""><span style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-left"></span></a>
+      <a href=""><span ng-click="slideClick('right')" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-right"></span></a>
+      <a href=""><span ng-click="slideClick('2')" id="slideIcon2" style="float:right;margin:10px" class="glyphicon glyphicon-minus slideicon"></span></a>
+      <a href=""><span ng-click="slideClick('1')" id="slideIcon1" style="float:right;margin:10px" class="glyphicon glyphicon-record slideicon"></span></a>
+      <a href=""><span ng-click="slideClick('left')" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-left"></span></a>
     </div>
   </div>
 </div>

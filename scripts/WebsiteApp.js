@@ -17,16 +17,34 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
-  $window.alert("using about controller");
+  $scope.slideClick = function(iconName){
+    switch(iconName){
+      case "right":
+        alert("right clicked");
+        break;
+      case "left":
+        alert("left clicked");
+        break;
+      case "1":
+        alert("1 clicked");
+        break;
+      case "2":
+        alert("2 clicked");
+        break;
+    }
+
+  };
 
 
 
 
-  
+
 
 }]);
 
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
   $window.alert("using pastprojects controller");
+
+
 
 }])
