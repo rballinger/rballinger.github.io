@@ -2,7 +2,7 @@ var app = angular.module("websiteApp", ['ngRoute']);
 
 app.config(function($routeProvider){
   $routeProvider.
-    when('/', {templateUrl:'partials/about.html'}).
+    when('/', {templateUrl:'partials/about.html', controller:'AboutController'}).
     when('/pastprojects', {templateUrl: 'partials/pastprojects.html'}).
     when('/currentprojects', {templateUrl: 'partials/currentprojects.html'}).
     when('/futureprojects', {templateUrl: 'partials/futureprojects.html'}).
@@ -14,4 +14,9 @@ app.config(function($routeProvider){
 
 app.controller("ViewController", ["$scope", function($scope){
   
+}]);
+
+app.controller("AboutController", ["$scope", function($scope){
+  alert("using about controller");
+
 }]);
