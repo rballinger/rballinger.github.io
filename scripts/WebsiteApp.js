@@ -16,12 +16,12 @@ app.controller("ViewController", ["$scope", function($scope){
   
 }]);
 
-app.controller("AboutController", ["$scope", function($scope){
-  alert("using about controller");
+app.controller("AboutController", ["$scope", "$window", function($scope, $window){
+  $window.alert("using about controller");
 
 }]);
 
-app.controller("PastProjectsController", ["$scope", function($scope){
-  alert("using pastprojects controller");
+app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
+  $window.alert("using pastprojects controller");
 
 }])
