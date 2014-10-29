@@ -17,11 +17,12 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
-  $scope.timer = $window.setInterval($scope.timer);
+  var delay = 4000;
+  var timer = $window.setInterval(autoslide, delay);
 
   $scope.slideClick = function(iconName, $event){
     if($event.originalEvent){
-      $scope.timer = $window.setInterval($scope.timer);
+      timer = $window.clearInterval(timer);
     }
     switch(iconName){
       case "right":
@@ -40,7 +41,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
     }
 
     if($event.originalEvent){
-      $scope.timer = setInterval(autoslide, $scope.delay);
+      timer = setInterval(autoslide, delay);
     }
   };
 

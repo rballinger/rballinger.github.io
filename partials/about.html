@@ -79,10 +79,10 @@
 </div>
 
 <script type="text/javascript">
-  var delay = 10000;
+  //var delay = 10000;
   var currentSlide = 1;
   var maxSlides = 2;
-  var timer;
+  //var timer;
   var width;
   var small = true;
 
@@ -91,7 +91,7 @@
 
   $(".glyphicon-circle-arrow-right").click(function(event) {
     if(event.originalEvent){
-      window.clearInterval(timer);
+      //window.clearInterval(timer);
     }
     $("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
       $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
@@ -102,13 +102,13 @@
       $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
     });
     if(event.originalEvent){
-      timer = window.setInterval(autoslide, delay);
+      //timer = window.setInterval(autoslide, delay);
     }
   });
 
   $(".glyphicon-circle-arrow-left").click(function(event) {
     if(event.originalEvent){
-      window.clearInterval(timer);
+      //window.clearInterval(timer);
     }
     $("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
       $("#slideIcon"+currentSlide).removeClass("glyphicon-record").addClass("glyphicon-minus");
@@ -119,13 +119,13 @@
       $("#slideIcon"+currentSlide).removeClass("glyphicon-minus").addClass("glyphicon-record");
     });
     if(event.originalEvent){
-      timer = window.setInterval(autoslide, delay);
+      //timer = window.setInterval(autoslide, delay);
     }
   });
 
   $(".slideicon").click(function(event) {
     if(event.originalEvent){
-      window.clearInterval(timer);
+      //window.clearInterval(timer);
     }
     var idNum = $(this).attr("id").replace(/slideIcon/,"");
     if(idNum > currentSlide){
@@ -144,15 +144,15 @@
       });
     }
     if(event.originalEvent){
-      timer = window.setInterval(autoslide, delay);
+      //timer = window.setInterval(autoslide, delay);
     }
   });
 
-  $(window).resize(resized);
+  //$(window).resize(resized);
 
-  function autoslide(){
-    $(".glyphicon-circle-arrow-right").click();
-  };
+  //function autoslide(){
+  //  $(".glyphicon-circle-arrow-right").click();
+  //};
 
   function resized(){
     width = $(window).width();
@@ -169,5 +169,5 @@
     }
   }
 
-  $(document).ready(resized);
+  //$(document).ready(resized);
 </script>
