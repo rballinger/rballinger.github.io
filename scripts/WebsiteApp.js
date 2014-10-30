@@ -17,7 +17,7 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
-  var delay = 4000;
+  var delay = 9000;
   var timer;
   var currentSlide = 1;
   var maxSlide = 2;
