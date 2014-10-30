@@ -96,7 +96,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
     }
   }
   
-  w.bind('resize', function(){alert("hello!");});
+  w.bind('resize', function(){resized();});
   resized();
 }]);
 
@@ -105,7 +105,4 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
 
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
   $window.alert("using pastprojects controller");
-
-
-
 }])
