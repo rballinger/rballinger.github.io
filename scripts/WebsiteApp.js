@@ -96,7 +96,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
     }
   }
   
-  w.bind('resize', resized);
+  w.bind('resize', function(){alert("hello!");});
   resized();
 }]);
 
