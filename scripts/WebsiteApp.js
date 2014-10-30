@@ -1,14 +1,15 @@
 var app = angular.module("websiteApp", ['ngRoute']);
+var timer;
 
 app.config(function($routeProvider){
   $routeProvider.
     when('/', {templateUrl:'partials/about.html', controller:'AboutController'}).
     when('/pastprojects', {templateUrl: 'partials/pastprojects.html', controller:'PastProjectsController'}).
-    when('/currentprojects', {templateUrl: 'partials/currentprojects.html'}).
-    when('/futureprojects', {templateUrl: 'partials/futureprojects.html'}).
-    when('/skills', {templateUrl: 'partials/skills.html'}).
-    when('/algorithms', {templateUrl: 'partials/algorithms.html'}).
-    when('/contact', {templateUrl: 'partials/contact.html'}).
+    when('/currentprojects', {templateUrl: 'partials/currentprojects.html', controller:'CurrentProjectsController'}).
+    when('/futureprojects', {templateUrl: 'partials/futureprojects.html', controller:'FutureProjectsController'}).
+    when('/skills', {templateUrl: 'partials/skills.html', controller:'SkillsController'}).
+    when('/algorithms', {templateUrl: 'partials/algorithms.html', controller:'AlgorithmController'}).
+    when('/contact', {templateUrl: 'partials/contact.html', controller:'ContactController'}).
     otherwise({redirectTo: '/'});
 });
 
@@ -18,7 +19,6 @@ app.controller("ViewController", ["$scope", function($scope){
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
   var delay = 9000;
-  var timer;
   var currentSlide = 1;
   var maxSlide = 2;
   var width;
@@ -96,10 +96,36 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
     }
   }
   
-  w.bind('resize', resized);
+  $window.bind('resize', resized);
   resized();
 }]);
 
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
   $window.alert("using pastprojects controller");
 }])
+
+app.controller("CurrentProjectsController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
+  $window.alert("using currentprojects controller");
+}]);
+
+app.controller("FutureProjectsController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
+  $window.alert("using futureprojects controller");
+}]);
+
+app.controller("SkillsController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
+  $window.alert("using skills controller");
+}]);
+
+app.controller("AlgorithmController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
+  $window.alert("using algorithm controller");
+}]);
+
+app.controller("ContactController", ["$scope", "$window", function($scope, $window){
+  $window.clearInterval(timer);
+  $window.alert("using contact controller");
+}]);
