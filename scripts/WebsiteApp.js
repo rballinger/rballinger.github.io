@@ -82,7 +82,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   };
 
   function resized(){
-    width = $window.width();
+    width = $window.outerWidth();
     if(width < 768){
       if(!small){
         $window.clearInterval(timer);
