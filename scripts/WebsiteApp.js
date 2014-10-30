@@ -23,6 +23,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   var maxSlide = 2;
   var width;
   var small = true;
+  var w = angular.element($window);
 
   $window.$('.active').removeClass("active");
   $window.$('#about').addClass("active");
@@ -94,8 +95,8 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
       }
     }
   }
-  $window.$resize(resized);
-  $window.$bind('resize', resized);
+  
+  w.bind('resize', resized);
   resized();
 }]);
 
