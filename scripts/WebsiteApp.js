@@ -18,9 +18,11 @@ app.controller("ViewController", ["$scope", function($scope){
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
   var delay = 4000;
-  var timer = $window.setInterval(autoslide, delay);
+  var timer;
   var currentSlide = 1;
   var maxSlide = 2;
+  var width;
+  var small = true;
 
   $window.$('.active').removeClass("active");
   $window.$('#about').addClass("active");
@@ -77,6 +79,24 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   function autoslide(){
     $window.$(".glyphicon-circle-arrow-right").click();
   };
+
+  function resized(){
+    width = $window.width();
+    if(width < 768){
+      if(!small){
+        $window.clearInterval(timer);
+        small = true;
+      }
+    }else{
+      if(small){
+        timer = $window.setInterval(autoslide, delay);
+        small = false;
+      }
+    }
+  }
+
+  $window.resize(resized);
+  resized();
 }]);
 
 
