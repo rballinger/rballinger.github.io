@@ -25,51 +25,54 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   var small = true;
   var w = angular.element($window);
 
-  $window.$('.active').removeClass("active");
-  $window.$('#about').addClass("active");
+  w.$('.active').removeClass("active");
+  w.$('#about').addClass("active");
+
+  w.$('.active').removeClass("active");
+  w.$('#about').addClass("active");
 
   $scope.slideClick = function(iconName, $event){
     $event.preventDefault();
     if($event.originalEvent){
-      timer = $window.clearInterval(timer);
+      timer = w.clearInterval(timer);
     }
     switch(iconName){
       case "right":
-        $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
-          $window.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
+        w.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
+          w.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
           currentSlide++;
           if(currentSlide > maxSlide)
             currentSlide = 1;
-          $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
-          $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
+          w.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
+          w.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
         });
         break;
       case "left":
-        $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
-          $window.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
+        w.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+          w.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
           currentSlide--;
           if(currentSlide < 1)
             currentSlide = maxSlide;
-          $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
-          $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
+          w.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
+          w.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
         });
         break;
       case "1":
       case "2":
       case "3":
         if(iconName > currentSlide){
-          $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
-            $window.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
+          w.$("#slide"+currentSlide).toggle("slide", {direction:"left"}, function(){
+            w.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
             currentSlide = iconName;
-            $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
-            $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
+            w.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
+            w.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
           });
         }else if(iconName < currentSlide){
-          $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
-            $window.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
+          w.$("#slide"+currentSlide).toggle("slide", {direction:"right"},function(){
+            w.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
             currentSlide = iconName;
-            $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
-            $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
+            w.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
+            w.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
           });
         }
         break;
@@ -80,19 +83,19 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   };
 
   function autoslide(){
-    $window.$(".glyphicon-circle-arrow-right").click();
+    w.$(".glyphicon-circle-arrow-right").click();
   };
 
   function resized(){
-    width = $window.outerWidth;
+    width = w.outerWidth;
     if(width < 768){
       if(!small){
-        $window.clearInterval(timer);
+        w.clearInterval(timer);
         small = true;
       }
     }else{
       if(small){
-        timer = $window.setInterval(autoslide, delay);
+        timer = w.setInterval(autoslide, delay);
         small = false;
       }
     }
