@@ -13,8 +13,13 @@ app.config(function($routeProvider){
     otherwise({redirectTo: '/'});
 });
 
-app.controller("ViewController", ["$scope", function($scope){
-  
+app.controller("ViewController", ["$scope", "$window", function($scope, $window){
+  $window.$('a.link').click(function() {
+    var navbar_toggle = $window.$('.navbar-toggle');
+    if (navbar_toggle.is(':visible')) {
+      navbar_toggle.trigger('click');
+    }
+  });
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
@@ -130,6 +135,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
+
 /*
   var request = $.ajax({
     type:'GET',
@@ -145,16 +151,14 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
     console.log("failed: " + textStatus);
   });
 
-*/
-
-
-  $http.jsonp('http://pterabyte.blogspot.com/feeds/posts/default'). 
+  $http.get('http://pterabyte.blogspot.com/feeds/posts/default'). 
     success(function(data, status, headers, config){ 
       console.log("success: " + data); 
     }). 
     error(function(data, status, headers, config){ 
       console.log("error: " + data); 
   });
+*/
 }]);
 
 app.controller("ContactController", ["$scope", "$window", function($scope, $window){
