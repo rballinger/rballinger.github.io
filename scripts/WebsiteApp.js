@@ -105,19 +105,19 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
 app.controller("PastProjectsController", ["$scope", "$window", function($scope, $window){
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
-  $window.$('#pastprojects').addClass("active");
+  $window.$('#projects').addClass("active");
 }])
 
 app.controller("CurrentProjectsController", ["$scope", "$window", function($scope, $window){
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
-  $window.$('#currentprojects').addClass("active");
+  $window.$('#projects').addClass("active");
 }]);
 
 app.controller("FutureProjectsController", ["$scope", "$window", function($scope, $window){
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
-  $window.$('#futureprojects').addClass("active");
+  $window.$('#projects').addClass("active");
 }]);
 
 app.controller("SkillsController", ["$scope", "$window", function($scope, $window){
