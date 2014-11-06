@@ -131,27 +131,9 @@ app.controller("BlogController", ["$scope", "$window", function($scope, $window)
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
 
-
-  var contentType ="application/x-www-form-urlencoded; charset=utf-8";
-  if(window.XDomainRequest)
-      contentType = "text/plain";
-  $.ajax(
-  {
-   url:"http://hayageektest.appspot.com/cross-domain-cors/get.php?name=Ravi&age=32",
-   dataType:"json",
-   contentType:contentType,
-   success:function(data)
-   {
-      alert("Data from Server"+JSON.stringify(data));
-   },
-   error:function(jqXHR,textStatus,errorThrown)
-   {
-      alert("You can not send Cross Domain AJAX requests : "+errorThrown);
-   }
-  });
-/*
   var request = $.ajax({
     type:'GET',
+    crossDomain:true,
     url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
     dataType:'xml'
   });
@@ -161,7 +143,7 @@ app.controller("BlogController", ["$scope", "$window", function($scope, $window)
   });
   request.fail(function(jqXHR, textStatus){
     console.log("failed: " + textStatus);
-  });*/
+  });
 }]);
 
 app.controller("ContactController", ["$scope", "$window", function($scope, $window){
