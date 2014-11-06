@@ -36,7 +36,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   $scope.slideClick = function(iconName, $event){
     $event.preventDefault();
     if($event.originalEvent){
-      timer = w.clearInterval(timer);
+      timer = $window.clearInterval(timer);
     }
     switch(iconName){
       case "right":
