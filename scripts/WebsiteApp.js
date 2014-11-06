@@ -49,7 +49,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
           $window.$("#slideIcon"+currentSlide).removeClass("fa-dot-circle-o").addClass("fa-circle-o");
           currentSlide--;
           if(currentSlide < 1)
-            currentSlide = maxSlides;
+            currentSlide = maxSlide;
           $window.$("#slide"+currentSlide).toggle("slide", {direction:"left"});
           $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
         });
