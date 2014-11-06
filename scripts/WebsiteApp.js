@@ -130,6 +130,19 @@ app.controller("BlogController", ["$scope", "$window", function($scope, $window)
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
+
+  var request = $.ajax({
+    type:'GET',
+    url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
+    dataType:'xml'
+  });
+  request.done(function(msg){
+    x=msg.getElementsByTagName("entry")[0];
+    console.log(x);
+  });
+  request.fail(function(jqXHR, textStatus){
+    console.log("failed: " + textStatus);
+  });
 }]);
 
 app.controller("ContactController", ["$scope", "$window", function($scope, $window){
