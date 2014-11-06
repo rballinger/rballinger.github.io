@@ -31,7 +31,11 @@
         <a href="https://github.com/rballinger">Github</a>,
         so feel free to take a look!
         <br><br>
-        Visit my <a href="contact.html">contact page</a> if you want to reach out to me!
+        In addition to projects, you can also take a look at posts from my developer blog
+        <a href="#/blog">here</a>. Updates include programming challenges I complete, new technologies I
+        look into, and updates on any projects I'm working on.
+        <br><br>
+        Visit my <a href="#/contact">contact page</a> if you want to reach out to me!
       </p>
     </div>
   </div>
@@ -68,12 +72,37 @@
           </p>
         </div>
       </div>
+      <div id="slide3" class="slide row" style="display:none">
+        <div class="col-xs-12 col-md-3">
+          <img src="person.png" class="img-responsive" style="display:block;margin:auto auto;">
+        </div>
+        <div class="col-xs-12 col-md-9" style="text-align:justify">
+          <h1>View posts from my Developer Blog!</h1>
+          <p>
+            Where I post updates on learning new technologies, how projects may be going, and my solutions
+            to programming problems I go through.
+            <br><br>
+            <a class="btn btn-primary btn-lg" href="blog.html" role="button">Check it out &raquo;</a>
+          </p>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <a href=""><span ng-click="slideClick('right', $event)" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-right"></span></a>
-      <a href=""><span ng-click="slideClick('2', $event)" id="slideIcon2" style="float:right;margin:10px" class="glyphicon glyphicon-minus slideicon"></span></a>
-      <a href=""><span ng-click="slideClick('1', $event)" id="slideIcon1" style="float:right;margin:10px" class="glyphicon glyphicon-record slideicon"></span></a>
-      <a href=""><span ng-click="slideClick('left', $event)" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-left"></span></a>
+      <a href="">
+        <span ng-click="slideClick('right', $event)" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-right"></span>
+      </a>
+      <a href="">
+        <i id="slideIcon3" ng-click="slideClick('3', $event)" style="float:right;margin:10px" class="fa fa-fw fa-circle-o slideicon"></i>
+      </a>
+      <a href="">
+        <i id="slideIcon2" ng-click="slideClick('2', $event)" style="float:right;margin:10px" class="fa fa-fw fa-circle-o slideicon"></i>
+      </a>
+      <a href="">
+        <i id="slideIcon1" ng-click="slideClick('1', $event)" style="float:right;margin:10px" class="fa fa-fw fa-dot-circle-o slideicon"></i>
+      </a>
+      <a href="">
+        <span ng-click="slideClick('left', $event)" style="float:right;margin:10px" class="glyphicon glyphicon-circle-arrow-left slideicon"></span>
+      </a>
     </div>
   </div>
 </div>

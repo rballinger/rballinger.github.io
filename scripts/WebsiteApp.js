@@ -8,7 +8,7 @@ app.config(function($routeProvider){
     when('/currentprojects', {templateUrl: 'partials/currentprojects.html', controller:'CurrentProjectsController'}).
     when('/futureprojects', {templateUrl: 'partials/futureprojects.html', controller:'FutureProjectsController'}).
     when('/skills', {templateUrl: 'partials/skills.html', controller:'SkillsController'}).
-    when('/algorithms', {templateUrl: 'partials/algorithms.html', controller:'AlgorithmController'}).
+    when('/blog', {templateUrl: 'partials/blog.html', controller:'BlogController'}).
     when('/contact', {templateUrl: 'partials/contact.html', controller:'ContactController'}).
     otherwise({redirectTo: '/'});
 });
@@ -18,9 +18,9 @@ app.controller("ViewController", ["$scope", function($scope){
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
-  var delay = 9000;
+  var delay = 10000;
   var currentSlide = 1;
-  var maxSlide = 2;
+  var maxSlide = 3;
   var width;
   var small = true;
   var w = angular.element($window);
@@ -29,6 +29,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   $window.$('#about').addClass("active");
 
   $scope.slideClick = function(iconName, $event){
+    $event.preventDefault();
     if($event.originalEvent){
       timer = $window.clearInterval(timer);
     }
@@ -120,9 +121,9 @@ app.controller("SkillsController", ["$scope", "$window", function($scope, $windo
   $window.alert("using skills controller");
 }]);
 
-app.controller("AlgorithmController", ["$scope", "$window", function($scope, $window){
+app.controller("BlogController", ["$scope", "$window", function($scope, $window){
   $window.clearInterval(timer);
-  $window.alert("using algorithm controller");
+  $window.alert("using Blog controller");
 }]);
 
 app.controller("ContactController", ["$scope", "$window", function($scope, $window){
