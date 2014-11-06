@@ -126,11 +126,11 @@ app.controller("SkillsController", ["$scope", "$window", function($scope, $windo
   $window.$('#skills').addClass("active");
 }]);
 
-app.controller("BlogController", ["$scope", "$window", function($scope, $window){
+app.controller("BlogController", ["$scope", "$window", "$http", function($scope, $window, $http){
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
-
+/*
   var request = $.ajax({
     type:'GET',
     crossDomain:true,
@@ -143,6 +143,17 @@ app.controller("BlogController", ["$scope", "$window", function($scope, $window)
   });
   request.fail(function(jqXHR, textStatus){
     console.log("failed: " + textStatus);
+  });
+
+*/
+
+
+  $http({method: 'GET', url: 'http://pterabyte.blogspot.com/feeds/posts/default'}). 
+    success(function(data, status, headers, config){ 
+      console.log("success: " + data); 
+    }). 
+    error(function(data, status, headers, config){ 
+      console.log("error: " + data); 
   });
 }]);
 
