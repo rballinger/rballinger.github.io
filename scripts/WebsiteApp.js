@@ -148,7 +148,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
 */
 
 
-  $http({method: 'GET', url: 'http://pterabyte.blogspot.com/feeds/posts/default'}). 
+  $http.jsonp('http://pterabyte.blogspot.com/feeds/posts/default'). 
     success(function(data, status, headers, config){ 
       console.log("success: " + data); 
     }). 
