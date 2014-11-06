@@ -29,7 +29,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
   $window.$('#about').addClass("active");
 
   $scope.slideClick = function(iconName, $event){
-    //$event.preventDefault();
+    $event.preventDefault();
     if($event.originalEvent){
       timer = $window.clearInterval(timer);
     }
@@ -41,7 +41,7 @@ app.controller("AboutController", ["$scope", "$window", function($scope, $window
           if(currentSlide > maxSlide)
             currentSlide = 1;
           $window.$("#slide"+currentSlide).toggle("slide", {direction:"right"});
-          $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-od");
+          $window.$("#slideIcon"+currentSlide).removeClass("fa-circle-o").addClass("fa-dot-circle-o");
         });
         break;
       case "left":
