@@ -131,6 +131,10 @@ app.controller("BlogController", ["$scope", "$window", function($scope, $window)
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
 
+
+  var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+  if(window.XDomainRequest)
+      contentType = "text/plain";
   $.ajax(
   {
    url:"http://hayageektest.appspot.com/cross-domain-cors/get.php?name=Ravi&age=32",
