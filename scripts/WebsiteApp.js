@@ -136,6 +136,42 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
 
+
+
+
+    <script>
+      /*function jsonp_callback(data) {
+        //do something with the data from the server
+        
+        var xmlDoc = $.parseXML(data);
+        $('#xmlhere').html(data);
+        //$('#xmlhere').html(xmlDoc.documentElement.getElementsByTagName("title")[0]);
+        console.log(data)
+      }*/
+
+      $http.jsonp('http://pterabyte.blogspot.com/feeds/posts/default'). 
+        success(function(data, status, headers, config){ 
+          console.log("success: " + data); 
+        }). 
+        error(function(data, status, headers, config){ 
+          console.log("error: " + data); 
+      });
+      /*
+      var request = $.ajax({
+        type:'GET',
+        url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
+        dataType:'jsonp'//,
+        //jsonpCallback:'jsonp_callback'
+      });
+      request.done(function(msg){
+        //x=msg.getElementsByTagName("entry")[0];
+        console.log(msg);
+      });
+      request.fail(function(jqXHR, textStatus){
+        console.log("failed: " + textStatus);
+      });
+      
+    </script>*/
 /*
   var request = $.ajax({
     type:'GET',
