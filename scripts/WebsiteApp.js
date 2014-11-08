@@ -139,7 +139,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
 
 
 
-    <script>
+  
       /*function jsonp_callback(data) {
         //do something with the data from the server
         
@@ -170,8 +170,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
       request.fail(function(jqXHR, textStatus){
         console.log("failed: " + textStatus);
       });
-      
-    </script>*/
+*/
 /*
   var request = $.ajax({
     type:'GET',
