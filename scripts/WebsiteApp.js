@@ -156,7 +156,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
         error(function(data, status, headers, config){ 
           console.log("error: " + data); 
       });
-      /*
+      
       var request = $.ajax({
         type:'GET',
         url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
@@ -170,7 +170,7 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
       request.fail(function(jqXHR, textStatus){
         console.log("failed: " + textStatus);
       });
-*/
+
 /*
   var request = $.ajax({
     type:'GET',
