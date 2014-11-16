@@ -1,15 +1,31 @@
-<!--div class="row">
-      <a class="btn btn-primary btn-lg btn-block" href="https://pterabyte.blogspot.com" role="button">View blog on its own website &raquo;</a>
-</div-->
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-md-7">
-      <h1>Check out my Developer Blog!</h1>
-      <br><br>
-      <a class="btn btn-primary btn-lg" href="https://pterabyte.blogspot.com" role="button">Take a Look &raquo;</a>
+<div class="row hidden-xs">
+  <a class="btn btn-primary btn-lg btn-block" href="https://pterabyte.blogspot.com" role="button">View Full Blog at Website &raquo;</a>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-md-6" ng-repeat="entry in postsAry">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <a class="btn btn-info" href="{{entry.link}}">{{entry.title}}</a>
+        <div class="pull-right">
+          Labels:
+          <a ng-repeat="cat in entry.cats" href="http://pterabyte.blogspot.com/search/label/{{cat}}">
+            <span class="label label-info" style="margin-left:5px">{{cat}}</span>
+          </a>
+        </div>
+      </div>
+      <div class="panel-body">
+        {{entry.content}}
+      </div>
+      <div class="panel-footer">
+        <div style="float:left">
+          {{entry.date}}
+        </div>
+        <a class="btn btn-info" style="float:right;margin-left:5px" href="{{entry.link}}" role="button">
+          <span class="badge">{{entry.cmtNum}}</span> Comments &raquo;
+        </a>
+        <div class="clearfix"></div>
+      </div>
     </div>
   </div>
-</div>
-<div id="xmlhere">
-    
 </div>

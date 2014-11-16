@@ -20,6 +20,10 @@ app.controller("ViewController", ["$scope", "$window", function($scope, $window)
       navbar_toggle.trigger('click');
     }
   });
+
+  $scope.collapse = function(){
+    $window.$("#nav-main").collapse('hide');
+  }
 }]);
 
 app.controller("AboutController", ["$scope", "$window", function($scope, $window){
@@ -135,65 +139,60 @@ app.controller("BlogController", ["$scope", "$window", "$http", function($scope,
   $window.clearInterval(timer);
   $window.$('.active').removeClass("active");
   $window.$('#blog').addClass("active");
+  $scope.postsAry = [];
 
-
-
-
-  
-      /*function jsonp_callback(data) {
-        //do something with the data from the server
-        
-        var xmlDoc = $.parseXML(data);
-        $('#xmlhere').html(data);
-        //$('#xmlhere').html(xmlDoc.documentElement.getElementsByTagName("title")[0]);
-        console.log(data)
-      }*/
-
-      $http.jsonp('http://pterabyte.blogspot.com/feeds/posts/default'). 
-        success(function(data, status, headers, config){ 
-          console.log("success: " + data); 
-        }). 
-        error(function(data, status, headers, config){ 
-          console.log("error: " + data); 
-      });
-      
-      var request = $.ajax({
-        type:'GET',
-        url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
-        dataType:'jsonp'//,
-        //jsonpCallback:'jsonp_callback'
-      });
-      request.done(function(msg){
-        //x=msg.getElementsByTagName("entry")[0];
-        console.log(msg);
-      });
-      request.fail(function(jqXHR, textStatus){
-        console.log("failed: " + textStatus);
-      });
-
-/*
   var request = $.ajax({
     type:'GET',
-    crossDomain:true,
     url:'http://pterabyte.blogspot.com/feeds/posts/default', // atom syn
-    dataType:'xml'
+    dataType:'jsonp'
   });
-  request.done(function(msg){
-    x=msg.getElementsByTagName("entry")[0];
-    console.log(x);
+  request.done(function(data){
+    var xmlDoc = $.parseXML(data);
+    var rootEntry = xmlDoc.getElementsByTagName('entry');
+    var categories = xmlDoc.getElementsByTagName('category');
+    var pubDates = xmlDoc.getElementsByTagName('published');
+    var titles = xmlDoc.getElementsByTagName('title');
+    var contents = xmlDoc.getElementsByTagName('content');
+    var allLinks = xmlDoc.getElementsByTagName('link');
+    
+    for(var i = 0; i < rootEntry.length; i++){
+      var entry = new Object();
+      for(var j = 0; j < pubDates.length; j++){
+        if(pubDates[j].parentNode == rootEntry[i]){
+          var pubDate = new Date(pubDates[j].firstChild.nodeValue);
+          entry.date = (pubDate.getMonth() + 1) + '/' + pubDate.getDate() + '/' + pubDate.getFullYear()
+            + ' @ ' + pubDate.getHours() + ':' + pubDate.getMinutes();
+        }
+      }
+      entry.cats = [];
+      for(var j = 0; j < categories.length; j++){
+        if(categories[j].parentNode == rootEntry[i]){
+          entry.cats.push(categories[j].getAttribute("term"));
+        }
+      }
+      for(var j = 0; j < titles.length; j++){
+        if(titles[j].parentNode == rootEntry[i]){
+          entry.title = titles[j].firstChild.nodeValue;
+        }
+      }
+      for(var j = 0; j < contents.length; j++){
+        if(contents[j].parentNode == rootEntry[i]){
+          entry.content = contents[j].firstChild.nodeValue;
+        }
+      }
+      for(var j = 0; j < allLinks.length; j++){
+        if(allLinks[j].parentNode == rootEntry[i] && ((j % 5) - 4 == 0)){
+          entry.cmtNum = allLinks[j + 1].getAttribute("title").split(" Comments")[0];
+          entry.link = allLinks[j + 4].getAttribute("href");
+        }
+      }
+      $scope.postsAry.push(entry);
+      $scope.$apply();
+    }
   });
   request.fail(function(jqXHR, textStatus){
     console.log("failed: " + textStatus);
   });
-
-  $http.get('http://pterabyte.blogspot.com/feeds/posts/default'). 
-    success(function(data, status, headers, config){ 
-      console.log("success: " + data); 
-    }). 
-    error(function(data, status, headers, config){ 
-      console.log("error: " + data); 
-  });
-*/
 }]);
 
 app.controller("ContactController", ["$scope", "$window", function($scope, $window){
