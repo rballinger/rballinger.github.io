@@ -14,9 +14,9 @@ app.config(function($routeProvider){
 });
 
 app.controller("ViewController", ["$scope", "$window", function($scope, $window){
-  console.log("using view controller");
+  alert("using view controller");
   $scope.collapse = function(){
-    console.log("clicked");
+    alert("clicked");
     $window.$("#nav-main").collapse('hide');
   }
 }]);
