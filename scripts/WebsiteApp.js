@@ -14,9 +14,8 @@ app.config(function($routeProvider){
 });
 
 app.controller("ViewController", ["$scope", "$window", function($scope, $window){
-  alert("using view controller");
+  // fixes navbar not collapsing on mobile due to partial routing
   $scope.collapse = function(){
-    console.log("clicked");
     $window.$("#nav-main").collapse('hide');
   }
 }]);
