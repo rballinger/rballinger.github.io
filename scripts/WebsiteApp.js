@@ -14,14 +14,9 @@ app.config(function($routeProvider){
 });
 
 app.controller("ViewController", ["$scope", "$window", function($scope, $window){
-  $window.$('a.link').click(function() {
-    var navbar_toggle = $window.$('.navbar-toggle');
-    if (navbar_toggle.is(':visible')) {
-      navbar_toggle.trigger('click');
-    }
-  });
-
+  console.log("using view controller");
   $scope.collapse = function(){
+    console.log("clicked");
     $window.$("#nav-main").collapse('hide');
   }
 }]);
